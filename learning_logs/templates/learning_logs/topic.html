@@ -1,0 +1,46 @@
+<style>
+
+    .topic{
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap
+    }
+    .topic div {
+        padding-right: 10px;
+    }
+
+
+</style>
+
+{% extends 'learning_logs/base.html' %}
+
+{% block page_header %}
+    <div class="topic">
+        <div class="box1">
+            <h1 class="display-4">{{ topic }}</h1>
+        </div>
+        <div class="box2">
+            <a href="{% url 'learning_logs:add_entry' topic.id%}"><h3 style="color: rgba(0, 0, 0, 0.897);">(Add a new entry)</h3></a>
+        </div>
+    </div>
+    
+    
+{% endblock page_header %}
+
+{% block content %}
+
+    {% for entry in entries %}
+        <div class="card mb-3">
+            <h4 class="card-header">
+                {{ entry.date_added|date:'M d, Y H:i' }}
+                <small><a style="color: rgba(0, 0, 0, 0.897);" href="{% url 'learning_logs:edit_entry' entry.id %}">(Edit entry)</a></small>
+            </h4>
+            <div class="card-body">
+                {{ entry.text|linebreaks }}
+            </div>
+        </div>
+    {% empty %}
+    <h3 style="size: 14px; color: rgba(0, 0, 0, 0.658); font-family: monospace;">There are no entries for this topic yet.</h3>
+    {% endfor %}
+
+{% endblock content %}
