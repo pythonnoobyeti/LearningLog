@@ -25,7 +25,7 @@ SECRET_KEY = '$*_g!kbo^d3^45tq1i=07wjp^#+*@w85az@%!qjaax^$0)%$+u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,6 +55,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'new_project.urls'
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 TEMPLATES = [
     {
@@ -126,6 +127,7 @@ STATIC_URL = '/static/'
 
 #Мои настройки
 LOGIN_URL = 'users:login'
+
 
 # Heroku settings.
 import django_heroku
