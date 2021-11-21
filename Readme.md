@@ -6,4 +6,4 @@
 4. python manage.py migrate
 5. python manage.py runserver
 
-# Have fun!
+## Have fun!
